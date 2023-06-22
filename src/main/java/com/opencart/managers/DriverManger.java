@@ -44,4 +44,10 @@ public class DriverManger {
         return  driver;
     }
 
+    public void quitTheDriver(){
+        driver.quit();
+        driver = null;
+        instance = null;
+        System.out.println("The Driver is quite and the instance is reset");
+    }
 }

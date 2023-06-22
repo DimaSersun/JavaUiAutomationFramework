@@ -10,7 +10,6 @@ import org.openqa.selenium.*;
 public class TestRunner {
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver = DriverManger.getInstance().getDriver();
-
         driver.get("https://andreisecuqa.host/");
 
         HomePage homePage = new HomePage(driver);
@@ -38,7 +37,5 @@ public class TestRunner {
 
         driver.quit();
         System.out.println("The execution was finished");
-
     }
-
 }
