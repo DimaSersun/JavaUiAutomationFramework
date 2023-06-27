@@ -2,6 +2,7 @@ package com.opencart;
 
 import com.opencart.managers.DataFakerManager;
 import com.opencart.managers.DriverManger;
+import com.opencart.managers.ScrollManger;
 import com.opencart.pageobjects.AccountCreatedPage;
 import com.opencart.pageobjects.HomePage;
 import com.opencart.pageobjects.RegisterPage;
@@ -26,12 +27,12 @@ public class TestRunner {
         Thread.sleep(1000);
         registerPage.switchOnPrivacyToggle(driver);
         Thread.sleep(1000);
-        registerPage.clickOnContinueButton();
+        registerPage.clickOnContinueButton(driver);
         Thread.sleep(1000);
         System.out.println(driver.getCurrentUrl());
 
-        AccountCreatedPage accauntCreatePage = new AccountCreatedPage(driver);
-        accauntCreatePage.logOutFromAccount();
+        AccountCreatedPage accountCreatePage = new AccountCreatedPage(driver);
+        accountCreatePage.logOutFromAccount();
         Thread.sleep(1000);
         System.out.println(driver.getCurrentUrl());
 

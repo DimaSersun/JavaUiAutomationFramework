@@ -9,35 +9,29 @@ public class RegisterPage extends Page{
     public RegisterPage(WebDriver driver) {
         super(driver);
     }
-    @FindBy(id ="input-firstname")
-    private WebElement firstNameImput;
-
-    @FindBy(id ="input-lastName")
-    private WebElement lastNameImput;
-
-    @FindBy(id ="input-email")
-    private WebElement emailImput;
-
-    @FindBy(id ="input-password")
-    private WebElement passwordImput;
-
-    @FindBy(css ="//input[@name='agree']")
+    @FindBy(xpath = "//input[@name='firstname']")
+    private WebElement firstNameInput;
+    @FindBy(xpath = "//input[@name='lastname']")
+    private WebElement lastNameInput;
+    @FindBy(xpath = "//input[@name='email']")
+    private WebElement emailInput;
+    @FindBy(xpath = "//input[@name='password']")
+    private WebElement passwordInput;
+    @FindBy(xpath = "//input[@name='agree']")
     private WebElement privacyToggle;
-
-    @FindBy(xpath ="//button[normalize-space()='Continue']")
-    private WebElement continueButton;
-
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement submitButton;
     public void fillInTheRegisterForm(String firstName, String lastName, String email, String password){
-        firstNameImput.sendKeys(firstName);
+        firstNameInput.sendKeys(firstName);
         System.out.println("The entered first name is: " + firstName);
 
-        lastNameImput.sendKeys(lastName);
+        lastNameInput.sendKeys(lastName);
         System.out.println("The entered last name is: " + lastName);
 
-        emailImput.sendKeys(email);
+        emailInput.sendKeys(email);
         System.out.println("The entered email is: " + email);
 
-        passwordImput.sendKeys(password);
+        passwordInput.sendKeys(password);
         System.out.println("The entered password is: " + password);
 
     }
@@ -47,7 +41,8 @@ public class RegisterPage extends Page{
         privacyToggle.click();
     }
 
-    public void clickOnContinueButton(){
-        continueButton.click();
+    public void clickOnContinueButton(WebDriver driver) throws InterruptedException {
+        ScrollManger.scrollToElement(driver, submitButton);
+        submitButton.click();
     }
 }
