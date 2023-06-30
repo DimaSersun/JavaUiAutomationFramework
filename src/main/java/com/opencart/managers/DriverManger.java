@@ -2,6 +2,7 @@ package com.opencart.managers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -13,10 +14,12 @@ public class DriverManger {
     private DriverManger(){
         switch (webDriverType.toUpperCase()){
             case "CHROME":
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--incognito");
                 driver = new ChromeDriver();
                 System.out.println("The Chrome Driver was initiated: ");
                 break;
-            case "FIREFIX":
+            case "FIREFOX":
                 driver = new FirefoxDriver();
                 System.out.println("The Firefix Driver was initiated: ");
                 break;
